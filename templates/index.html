@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html> 
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <title>Hateful meme detection</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <div class="upload-container" id="uploadBox">
+            <p>Drag and drop a meme here</p>
+            <input type="file" id="fileInput" style="display: none;" />
+        </div>
+
+        <form action="/evaluate">
+            <button id="evaluate-btn" style="display: none;">Evaluate</button>
+        </form>
+
+        {% if hateful == True or hateful == False %}
+        <h3 id="result" {% if hateful %} style="color: red;" {% else %} style="color: green;" {% endif %}>
+            This meme is {% if not hateful %} not {% endif %} hateful
+        </h3>
+        {% endif %}
+
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+    </body>
+</html>
