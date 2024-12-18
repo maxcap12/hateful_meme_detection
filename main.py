@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, jsonify, send_from_directory, redirect, url_for
 import os
 from random import randint
+import time
+
 
 app = Flask(__name__)
 UPLOAD_FOLDER = 'uploads'
